@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>SYJ NexusIntel AI — Enterprise Revenue Intelligence Platform</title>
+  <meta name="description" content="Enterprise-grade Business Intelligence, Lead Management, Revenue Analytics, Executive Reporting, and Opportunity Discovery in a unified SaaS platform designed for modern organizations." />
+  <meta name="keywords" content="revenue intelligence, business intelligence, CRM, lead management, sales analytics, AI, SaaS, enterprise" />
+  <meta name="author" content="Syed Ali Hasan Moosavi" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SYJ NexusIntel AI — Enterprise Revenue Intelligence" />
+  <meta property="og:description" content="Enterprise-grade Business Intelligence, Lead Management, Revenue Analytics, Executive Reporting, and Opportunity Discovery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sayanjali.ai" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SYJ NexusIntel AI" />
+  <meta name="twitter:description" content="Enterprise Revenue Intelligence Platform by SAYANJALI NEXUS PRIVATE LIMITED" />
+  <meta name="twitter:creator" content="@SHAliMoosavi" />
+
+  <link rel="canonical" href="https://sayanjali.ai" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      --bg:          #050B18;
+      --bg-2:        #080F20;
+      --bg-card:     #0A1628;
+      --bg-card-hov: #0D1E38;
+      --border:      rgba(16,185,129,0.15);
+      --border-hov:  rgba(52,211,153,0.4);
+      --em:          #10B981;
+      --em-lite:     #34D399;
+      --em-dim:      rgba(16,185,129,0.12);
+      --text:        #F0F4FF;
+      --text-2:      #94A3B8;
+      --text-3:      #64748B;
+      --mono:        'JetBrains Mono', monospace;
+      --sans:        'Inter', sans-serif;
+      --radius:      12px;
+      --radius-lg:   20px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--sans); cursor: pointer; border: none; }
+
+    /* ─── Scrollbar ─────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-hov); border-radius: 3px; }
+
+    /* ─── Typography ────────────────────────────────── */
+    .t-hero   { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 900; line-height: 1.06; letter-spacing: -0.03em; }
+    .t-h2     { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+    .t-h3     { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.015em; }
+    .t-body   { font-size: 1.0625rem; line-height: 1.7; color: var(--text-2); }
+    .t-small  { font-size: 0.8125rem; line-height: 1.5; color: var(--text-3); }
+    .t-mono   { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.01em; }
+    .t-label  { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); }
+
+    .em-text {
+      background: linear-gradient(135deg, var(--em) 0%, var(--em-lite) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Layout ────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section   { padding: 120px 0; }
+    .section-sm { padding: 80px 0; }
+
+    /* ─── Navigation ────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(5, 11, 24, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    #nav.scrolled {
+      background: rgba(5, 11, 24, 0.95);
+      border-color: rgba(16,185,129,0.25);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--em) 0%, var(--em-lite) 100%);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 16px; height: 16px; }
+    .nav-logo-text { font-weight: 700; font-size: 1.0625rem; color: var(--text); }
+    .nav-logo-text span { color: var(--em-lite); }
+
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 0.9375rem; font-weight: 500; color: var(--text-2); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--em-lite); }
+
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+    /* ─── Buttons ────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 11px 24px; border-radius: 8px;
+      font-size: 0.9375rem; font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-em {
+      background: linear-gradient(135deg, var(--em) 0%, var(--em-lite) 100%);
+      color: #050B18;
+      box-shadow: 0 0 0 0 rgba(16,185,129,0.4);
+    }
+    .btn-em:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(16,185,129,0.4);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--em-lite);
+      border: 1px solid rgba(52,211,153,0.35);
+    }
+    .btn-ghost:hover {
+      background: var(--em-dim); border-color: var(--em-lite);
+    }
+    .btn-lg { padding: 15px 36px; font-size: 1rem; border-radius: 10px; }
+    .btn-icon svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ─── Mobile menu ────────────────────────────────── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--em-lite); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      padding: 16px 0 20px;
+      border-top: 1px solid var(--border);
+      gap: 4px;
+    }
+    .mobile-nav a {
+      padding: 10px 0; font-size: 1rem; font-weight: 500;
+      color: var(--text-2); transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--em-lite); }
+    .mobile-nav .btn { margin-top: 12px; width: 100%; }
+
+    /* ─── Ambient glow ───────────────────────────────── */
+    .ambient {
+      position: absolute; pointer-events: none; border-radius: 50%;
+      filter: blur(120px); opacity: 0.18;
+    }
+    .ambient-1 {
+      width: 700px; height: 700px; top: -200px; left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, var(--em) 0%, transparent 70%);
+    }
+    .ambient-2 {
+      width: 400px; height: 400px; bottom: -100px; right: -100px;
+      background: radial-gradient(circle, #3B82F6 0%, transparent 70%);
+      opacity: 0.1;
+    }
+
+    /* ─── Intelligence Ticker (signature element) ─────── */
+    .ticker-wrap {
+      width: 100%; overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(16,185,129,0.04);
+      padding: 10px 0;
+    }
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker-scroll 32s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 40px; white-space: nowrap;
+      font-family: var(--mono); font-size: 0.8125rem; color: var(--text-3);
+    }
+    .ticker-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--em); flex-shrink: 0;
+      animation: ticker-pulse 2s ease-in-out infinite;
+    }
+    .ticker-val { color: var(--em-lite); font-weight: 600; }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes ticker-pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    #hero {
+      padding: 160px 0 100px;
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--em-dim); border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 99px; padding: 5px 14px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--em);
+      animation: ticker-pulse 2s ease-in-out infinite;
+    }
+    .hero-eyebrow-text { font-family: var(--mono); font-size: 0.75rem; color: var(--em-lite); font-weight: 500; }
+
+    .hero-title { margin-bottom: 24px; }
+    .hero-subtitle { max-width: 520px; margin-bottom: 44px; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-actions .proof {
+      font-size: 0.8125rem; color: var(--text-3);
+      display: flex; align-items: center; gap: 6px; margin-left: 4px;
+    }
+    .hero-actions .proof-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--em); display: inline-block;
+    }
+
+    /* ─── Intelligence Panel (hero right) ───────────────── */
+    .intel-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .intel-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--em-lite), transparent);
+    }
+    .intel-panel-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .intel-panel-dots { display: flex; gap: 6px; }
+    .intel-panel-dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .intel-panel-dots span:nth-child(1) { background: #FF5F57; }
+    .intel-panel-dots span:nth-child(2) { background: #FEBC2E; }
+    .intel-panel-dots span:nth-child(3) { background: #28C840; }
+    .intel-panel-title { font-family: var(--mono); font-size: 0.75rem; color: var(--text-3); }
+    .intel-panel-status {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 0.6875rem; color: var(--em);
+    }
+    .intel-panel-status-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--em);
+      animation: ticker-pulse 1.5s ease-in-out infinite;
+    }
+
+    .intel-modules { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .intel-module {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex; align-items: center; gap: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .intel-module:hover { border-color: var(--border-hov); background: rgba(16,185,129,0.04); }
+    .intel-module-icon {
+      width: 38px; height: 38px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .intel-module-body { flex: 1; min-width: 0; }
+    .intel-module-name { font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .intel-module-desc { font-size: 0.75rem; color: var(--text-3); }
+    .intel-module-badge {
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+      padding: 3px 8px; border-radius: 4px; white-space: nowrap;
+    }
+    .badge-active { background: rgba(16,185,129,0.15); color: var(--em-lite); border: 1px solid rgba(16,185,129,0.3); }
+    .badge-live   { background: rgba(16,185,129,0.08); color: var(--em); border: 1px solid rgba(16,185,129,0.2); animation: ticker-pulse 2s infinite; }
+
+    /* ─── Divider ─────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-hov), transparent);
+    }
+
+    /* ─── Section headers ────────────────────────────── */
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 72px; }
+    .section-header .t-label { margin-bottom: 12px; display: block; }
+    .section-header .t-h2 { margin-bottom: 16px; }
+
+    /* ─── Feature Grid ───────────────────────────────── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      padding: 36px 32px;
+      transition: background 0.25s;
+    }
+    .feature-card:hover { background: var(--bg-card-hov); }
+    .feature-card-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: var(--em-dim); border: 1px solid rgba(16,185,129,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.375rem; margin-bottom: 24px;
+    }
+    .feature-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .feature-card p  { font-size: 0.9rem; line-height: 1.65; color: var(--text-2); }
+
+    /* ─── How It Works ───────────────────────────────── */
+    #how-it-works { background: var(--bg-2); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--em) 20%, var(--em) 80%, transparent);
+      opacity: 0.3;
+    }
+    .step { padding: 0 24px; text-align: center; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--bg-card); border: 1px solid var(--border-hov);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--mono); font-size: 0.875rem; font-weight: 600; color: var(--em);
+      position: relative; z-index: 1;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .step p   { font-size: 0.875rem; line-height: 1.65; color: var(--text-2); }
+
+    /* ─── Pricing ────────────────────────────────────── */
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      position: relative;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .pricing-card:hover { border-color: var(--border-hov); }
+    .pricing-card.featured {
+      border-color: rgba(52,211,153,0.5);
+      background: linear-gradient(160deg, rgba(16,185,129,0.06) 0%, var(--bg-card) 60%);
+    }
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: var(--radius-lg);
+      box-shadow: 0 0 60px rgba(16,185,129,0.12);
+      pointer-events: none;
+    }
+    .pricing-badge {
+      display: inline-flex; align-items: center;
+      background: linear-gradient(135deg, var(--em), var(--em-lite));
+      color: #050B18; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .pricing-name { font-size: 1.375rem; font-weight: 800; margin-bottom: 6px; }
+    .pricing-for  { font-size: 0.875rem; color: var(--text-3); margin-bottom: 28px; }
+    .pricing-setup-label { font-family: var(--mono); font-size: 0.75rem; color: var(--text-3); margin-bottom: 4px; }
+    .pricing-setup { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+    .pricing-setup .em-text { font-size: 1.5rem; font-weight: 700; }
+    .pricing-monthly-label { font-family: var(--mono); font-size: 0.75rem; color: var(--text-3); margin-bottom: 4px; }
+    .pricing-amount { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 36px; }
+    .pricing-amount sub { font-size: 1rem; font-weight: 500; color: var(--text-2); bottom: 0; }
+
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-2); }
+    .pricing-check { color: var(--em); font-size: 0.9rem; margin-top: 1px; flex-shrink: 0; }
+
+    /* ─── Licensing note ─────────────────────────────── */
+    .licensing-note {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--em);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      max-width: 900px; margin: 32px auto 0;
+    }
+    .licensing-note h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .licensing-note p  { font-size: 0.9rem; line-height: 1.75; color: var(--text-2); }
+
+    /* ─── Trust strip ────────────────────────────────── */
+    #trust { background: var(--bg-2); }
+    .trust-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .trust-item {
+      background: var(--bg-card);
+      padding: 32px 20px; text-align: center;
+      transition: background 0.2s;
+    }
+    .trust-item:hover { background: var(--bg-card-hov); }
+    .trust-item-icon { font-size: 1.75rem; margin-bottom: 12px; }
+    .trust-item h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+    .trust-item p  { font-size: 0.8rem; line-height: 1.55; color: var(--text-3); }
+
+    /* ─── Founder ────────────────────────────────────── */
+    .founder-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 64px;
+      display: grid; grid-template-columns: 240px 1fr; gap: 64px;
+      align-items: start; position: relative; overflow: hidden;
+    }
+    .founder-card::after {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .founder-avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--em) 0%, var(--em-lite) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; margin-bottom: 20px;
+    }
+    .founder-name { font-size: 1.375rem; font-weight: 800; margin-bottom: 4px; }
+    .founder-role { font-size: 0.875rem; color: var(--em-lite); font-weight: 600; margin-bottom: 4px; }
+    .founder-co   { font-size: 0.8125rem; color: var(--text-3); margin-bottom: 24px; }
+    .founder-socials { display: flex; flex-direction: column; gap: 10px; }
+    .founder-social-link {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.875rem; color: var(--text-3);
+      transition: color 0.2s;
+    }
+    .founder-social-link:hover { color: var(--em-lite); }
+    .founder-social-link svg { width: 14px; height: 14px; }
+
+    .founder-bio h3 { font-size: 1.625rem; font-weight: 800; margin-bottom: 16px; }
+    .founder-bio p  { font-size: 1rem; line-height: 1.75; color: var(--text-2); margin-bottom: 32px; }
+    .founder-products h4 { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); margin-bottom: 16px; }
+    .founder-products-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .product-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--em-dim); border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 6px; padding: 7px 14px;
+      font-size: 0.8125rem; font-weight: 500; color: var(--em-lite);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .product-pill:hover { border-color: var(--em-lite); background: rgba(16,185,129,0.15); }
+    .product-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--em); flex-shrink: 0; }
+
+    /* ─── Contact ────────────────────────────────────── */
+    #contact { background: var(--bg-2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-info h2 { margin-bottom: 20px; }
+    .contact-info .t-body { margin-bottom: 44px; }
+    .contact-points { display: flex; flex-direction: column; gap: 20px; }
+    .contact-point {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .contact-point-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--em-dim); display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-point-body h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 4px; }
+    .contact-point-body p  { font-size: 0.8125rem; color: var(--text-3); }
+
+    .contact-actions { display: flex; flex-direction: column; gap: 16px; }
+    .contact-action-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      transition: border-color 0.2s;
+    }
+    .contact-action-card:hover { border-color: var(--border-hov); }
+    .contact-action-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; }
+    .contact-action-card p  { font-size: 0.9rem; color: var(--text-2); margin-bottom: 24px; line-height: 1.65; }
+    .contact-action-card .btn { width: 100%; }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 64px 0 40px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .footer-brand p { font-size: 0.875rem; color: var(--text-3); line-height: 1.65; margin-top: 14px; max-width: 240px; }
+    .footer-col h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.875rem; color: var(--text-2); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--em-lite); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.8125rem; color: var(--text-3); }
+    .footer-bottom a { color: var(--em); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--em-lite); }
+    .footer-dev { font-family: var(--mono); font-size: 0.75rem; color: var(--text-3); }
+
+    /* ─── Scroll reveal ──────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid   { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid  { grid-template-columns: 1fr 1fr; }
+      .founder-card { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
+      .steps        { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .steps::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 80px 0; }
+      .hero-grid   { grid-template-columns: 1fr; gap: 48px; }
+      .pricing-grid  { grid-template-columns: 1fr; }
+      .contact-grid  { grid-template-columns: 1fr; }
+      .feature-grid  { grid-template-columns: 1fr; }
+      .trust-grid    { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid   { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .pricing-card { padding: 32px 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────── -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="NexusIntel AI home">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" fill="#050B18"/>
+              <path d="M8 5L11 6.75V10.25L8 12L5 10.25V6.75L8 5Z" fill="#10B981" opacity="0.6"/>
+              <circle cx="8" cy="8" r="1.5" fill="#050B18"/>
+            </svg>
+          </div>
+          <span class="nav-logo-text">NexusIntel <span>AI</span></span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#founder">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-ghost">Contact Sales</a>
+          <a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener" class="btn btn-em">Book Demo</a>
+        </div>
+
+        <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <a href="#features"    onclick="closeMenu()">Features</a>
+        <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
+        <a href="#pricing"     onclick="closeMenu()">Pricing</a>
+        <a href="#founder"     onclick="closeMenu()">About</a>
+        <a href="#contact"     onclick="closeMenu()">Contact</a>
+        <a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener" class="btn btn-em btn-lg">Book Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Intelligence Ticker ──────────────────────────── -->
+  <div class="ticker-wrap" style="margin-top:64px;" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <!-- items injected by JS to guarantee seamless duplicate -->
+    </div>
+  </div>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="ambient ambient-1" aria-hidden="true"></div>
+    <div class="ambient ambient-2" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: copy -->
+        <div>
+          <div class="hero-eyebrow" aria-label="Platform status: live">
+            <span class="hero-eyebrow-dot"></span>
+            <span class="hero-eyebrow-text">Platform — Managed SaaS · Enterprise Ready</span>
+          </div>
+
+          <h1 class="t-hero hero-title">
+            Enterprise Revenue<br />
+            <span class="em-text">Intelligence,</span><br />
+            Unified.
+          </h1>
+
+          <p class="t-body hero-subtitle">
+            Enterprise-grade Business Intelligence, Lead Management, Revenue Analytics, Executive Reporting, and Opportunity Discovery in a unified SaaS platform designed for modern organizations.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener" class="btn btn-em btn-lg">
+              <svg class="btn-icon" viewBox="0 0 16 16" fill="none"><path d="M8 1.5v9M8 1.5L5 4.5M8 1.5l3 3M2 12.5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Request Demo
+            </a>
+            <a href="#contact" class="btn btn-ghost btn-lg">Contact Sales</a>
+            <span class="proof">
+              <span class="proof-dot"></span>
+              SAYANJALI NEXUS PRIVATE LIMITED
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: intelligence panel -->
+        <div>
+          <div class="intel-panel" role="img" aria-label="NexusIntel AI module overview">
+            <div class="intel-panel-header">
+              <div class="intel-panel-dots"><span></span><span></span><span></span></div>
+              <span class="intel-panel-title">nexusintel — platform overview</span>
+              <div class="intel-panel-status">
+                <span class="intel-panel-status-dot"></span>
+                LIVE
+              </div>
+            </div>
+
+            <div class="intel-modules">
+              <div class="intel-module">
+                <div class="intel-module-icon" style="background:rgba(16,185,129,0.1)">📊</div>
+                <div class="intel-module-body">
+                  <div class="intel-module-name">Revenue Intelligence</div>
+                  <div class="intel-module-desc">Pipeline analytics & revenue forecasting</div>
+                </div>
+                <span class="intel-module-badge badge-active">ACTIVE</span>
+              </div>
+
+              <div class="intel-module">
+                <div class="intel-module-icon" style="background:rgba(59,130,246,0.1)">🎯</div>
+                <div class="intel-module-body">
+                  <div class="intel-module-name">Lead Intelligence</div>
+                  <div class="intel-module-desc">AI-scored leads, prioritized for your team</div>
+                </div>
+                <span class="intel-module-badge badge-active">ACTIVE</span>
+              </div>
+
+              <div class="intel-module">
+                <div class="intel-module-icon" style="background:rgba(168,85,247,0.1)">📈</div>
+                <div class="intel-module-body">
+                  <div class="intel-module-name">Executive Forecasting</div>
+                  <div class="intel-module-desc">Board-ready analytics & executive briefings</div>
+                </div>
+                <span class="intel-module-badge badge-active">ACTIVE</span>
+              </div>
+
+              <div class="intel-module">
+                <div class="intel-module-icon" style="background:rgba(249,115,22,0.1)">🤖</div>
+                <div class="intel-module-body">
+                  <div class="intel-module-name">AI-Powered Analytics</div>
+                  <div class="intel-module-desc">Opportunity discovery & predictive insights</div>
+                </div>
+                <span class="intel-module-badge badge-live">PROCESSING</span>
+              </div>
+            </div>
+
+            <div style="padding:0 20px 20px;">
+              <div style="background:rgba(16,185,129,0.05);border:1px solid var(--border);border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+                <span class="t-mono" style="color:var(--text-3)">nexusintel_core — v2.6.1</span>
+                <span class="t-mono" style="color:var(--em)">SLA: 99.9%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ─────────────────────────────────────── -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Platform Capabilities</span>
+        <h2 class="t-h2">Everything your revenue team needs</h2>
+        <p class="t-body">One platform. Six enterprise-grade modules. Zero compromises on data or intelligence.</p>
+      </div>
+
+      <div class="feature-grid reveal">
+        <div class="feature-card">
+          <div class="feature-card-icon">🎯</div>
+          <h3>Lead Management</h3>
+          <p>Capture, track, and qualify leads from every source. Intelligent prioritization surfaces your highest-value opportunities automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">📊</div>
+          <h3>Executive Dashboard</h3>
+          <p>Real-time KPIs and business intelligence in a single view. Built for C-suite decisions, not spreadsheet gymnastics.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🤖</div>
+          <h3>AI Opportunity Discovery</h3>
+          <p>ML models surface high-probability prospects and hidden revenue potential before your competitors see them.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">📈</div>
+          <h3>CRM Analytics</h3>
+          <p>Full pipeline visibility with stage-level performance metrics. Identify bottlenecks and optimize conversion at every step.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🔮</div>
+          <h3>Revenue Forecasting</h3>
+          <p>Predictive models trained on your data deliver reliable quarterly projections for confident board presentations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">💼</div>
+          <h3>Business Intelligence</h3>
+          <p>Actionable executive briefings and strategic recommendations synthesized from your full data landscape.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ──────────────────────────────────── -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Process</span>
+        <h2 class="t-h2">Data in. Revenue out.</h2>
+        <p class="t-body">Four stages from raw business data to prioritized, actionable revenue intelligence.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal reveal-d1">
+          <div class="step-num">01</div>
+          <h3>Capture Leads</h3>
+          <p>Ingest and consolidate leads from every source — CRM exports, web forms, enriched databases — into one unified pipeline.</p>
+        </div>
+        <div class="step reveal reveal-d2">
+          <div class="step-num">02</div>
+          <h3>Analyse Prospects</h3>
+          <p>Deep business intelligence on every account: firmographics, intent signals, growth indicators, and competitive context.</p>
+        </div>
+        <div class="step reveal reveal-d3">
+          <div class="step-num">03</div>
+          <h3>Generate Intelligence</h3>
+          <p>AI synthesises signals into scored opportunities, executive briefings, and revenue forecasts — ready for action.</p>
+        </div>
+        <div class="step reveal reveal-d4">
+          <div class="step-num">04</div>
+          <h3>Close More Deals</h3>
+          <p>Your team focuses on the highest-probability opportunities. Pipeline velocity increases. Revenue follows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ───────────────────────────────────────── -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Pricing</span>
+        <h2 class="t-h2">Transparent, all-inclusive pricing</h2>
+        <p class="t-body">Hosted, managed, and continuously updated. No infrastructure headaches, no hidden fees.</p>
+      </div>
+
+      <div class="pricing-grid reveal">
+        <!-- Professional -->
+        <div class="pricing-card">
+          <div class="pricing-name">Professional</div>
+          <div class="pricing-for">For growing revenue teams</div>
+
+          <div class="pricing-setup-label">One-time setup</div>
+          <div class="pricing-setup"><span class="em-text">₹1,49,999</span></div>
+
+          <div class="pricing-monthly-label">Monthly platform fee</div>
+          <div class="pricing-amount">₹9,999<sub>/mo</sub></div>
+
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> CRM Platform</li>
+            <li><span class="pricing-check">✓</span> Executive Dashboard</li>
+            <li><span class="pricing-check">✓</span> Revenue Analytics</li>
+            <li><span class="pricing-check">✓</span> Lead Management</li>
+            <li><span class="pricing-check">✓</span> Executive Briefings</li>
+            <li><span class="pricing-check">✓</span> Managed Cloud Hosting</li>
+            <li><span class="pricing-check">✓</span> Continuous Platform Updates</li>
+          </ul>
+
+          <a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card featured">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-for">For large organizations &amp; complex deployments</div>
+
+          <div class="pricing-setup-label">One-time setup</div>
+          <div class="pricing-setup"><span class="em-text">₹4,99,999</span></div>
+
+          <div class="pricing-monthly-label">Monthly platform fee</div>
+          <div class="pricing-amount">₹29,999<sub>/mo</sub></div>
+
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> Everything in Professional</li>
+            <li><span class="pricing-check">✓</span> White-Label Branding</li>
+            <li><span class="pricing-check">✓</span> Dedicated Deployment</li>
+            <li><span class="pricing-check">✓</span> Priority 24 / 7 Support</li>
+            <li><span class="pricing-check">✓</span> Full API Access</li>
+            <li><span class="pricing-check">✓</span> Custom Integrations</li>
+            <li><span class="pricing-check">✓</span> Advanced Security & Compliance</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-em" style="width:100%;justify-content:center;">Contact Sales</a>
+        </div>
+      </div>
+
+      <!-- Licensing note -->
+      <div class="licensing-note reveal">
+        <h3>Deployment &amp; Licensing</h3>
+        <p>
+          SYJ NexusIntel AI is delivered as a managed SaaS platform. Customers receive hosted access, deployment, support, updates, maintenance, and infrastructure management.<br /><br />
+          Source code, repositories, deployment assets, intellectual property, and proprietary technologies remain the exclusive property of SAYANJALI NEXUS PRIVATE LIMITED unless transferred under a separate enterprise agreement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust ─────────────────────────────────────────── -->
+  <section id="trust" class="section-sm">
+    <div class="container">
+      <div class="trust-grid reveal">
+        <div class="trust-item">
+          <div class="trust-item-icon">🔒</div>
+          <h4>Enterprise Security</h4>
+          <p>Military-grade encryption and enterprise compliance standards</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">☁️</div>
+          <h4>Managed Infrastructure</h4>
+          <p>99.9% uptime SLA with global redundancy, fully managed</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">🔄</div>
+          <h4>Continuous Updates</h4>
+          <p>Regular feature releases and improvements — included in your plan</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">🤖</div>
+          <h4>AI-Native Platform</h4>
+          <p>Intelligent recommendations built into every module, not bolted on</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">👥</div>
+          <h4>Dedicated Support</h4>
+          <p>Expert implementation and success team from day one</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Founder ───────────────────────────────────────── -->
+  <section id="founder" class="section">
+    <div class="container">
+      <div class="founder-card reveal">
+
+        <!-- Left: identity -->
+        <div>
+          <div class="founder-avatar" aria-hidden="true">👨‍💼</div>
+          <div class="founder-name">Syed Ali Hasan Moosavi</div>
+          <div class="founder-role">Founder &amp; Managing Director</div>
+          <div class="founder-co">SAYANJALI NEXUS PRIVATE LIMITED</div>
+
+          <div class="founder-socials">
+            <a href="https://www.linkedin.com/in/syed-ali-hasan-moosavi-3b13782a7" target="_blank" rel="noopener" class="founder-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/SHalimoosavi" target="_blank" rel="noopener" class="founder-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.071 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              GitHub
+            </a>
+            <a href="https://shalimoosavi.github.io/moosavi/" target="_blank" rel="noopener" class="founder-social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Portfolio
+            </a>
+            <a href="https://twitter.com/SHAliMoosavi" target="_blank" rel="noopener" class="founder-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter / X
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: bio & products -->
+        <div class="founder-bio">
+          <h3>Building AI, Automation &amp; Intelligence for Modern Business</h3>
+          <p>
+            Founder &amp; Managing Director of SAYANJALI NEXUS PRIVATE LIMITED. Building AI, Automation, Intelligence, and Business Software Solutions for modern businesses — from enterprise revenue platforms to open-source developer tools targeting global markets.
+          </p>
+
+          <div class="founder-products">
+            <h4>Founder of</h4>
+            <div class="founder-products-list">
+              <span class="product-pill"><span class="product-pill-dot"></span>SYJ NexusIntel AI</span>
+              <span class="product-pill"><span class="product-pill-dot"></span>NexusRank AI</span>
+              <span class="product-pill"><span class="product-pill-dot"></span>SYJ Scholar AI</span>
+              <span class="product-pill"><span class="product-pill-dot"></span>SAYANJALI OSINT</span>
+              <span class="product-pill"><span class="product-pill-dot"></span>SYJ Momentum</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ───────────────────────────────────────── -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: info -->
+        <div>
+          <span class="t-label" style="display:block;margin-bottom:12px;">Contact</span>
+          <h2 class="t-h2" style="margin-bottom:20px;">Let's talk revenue intelligence</h2>
+          <p class="t-body" style="margin-bottom:44px;">
+            Ready to transform how your organization captures and converts revenue intelligence? Talk to our team or request a live demo today.
+          </p>
+
+          <div class="contact-points">
+            <div class="contact-point">
+              <div class="contact-point-icon">📧</div>
+              <div class="contact-point-body">
+                <h4>Email</h4>
+                <p><a href="mailto:hello@sayanjali.ai" style="color:var(--em-lite)">hello@sayanjali.ai</a></p>
+              </div>
+            </div>
+            <div class="contact-point">
+              <div class="contact-point-icon">🏢</div>
+              <div class="contact-point-body">
+                <h4>Company</h4>
+                <p>SAYANJALI NEXUS PRIVATE LIMITED</p>
+              </div>
+            </div>
+            <div class="contact-point">
+              <div class="contact-point-icon">⚡</div>
+              <div class="contact-point-body">
+                <h4>Response time</h4>
+                <p>Within 24 hours on business days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: CTA cards -->
+        <div class="contact-actions">
+          <div class="contact-action-card">
+            <h3>Request a Demo</h3>
+            <p>See NexusIntel AI in action with a live walkthrough tailored to your industry and use case. No commitment required.</p>
+            <a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener" class="btn btn-em btn-lg" style="width:100%;justify-content:center;">
+              Request Demo →
+            </a>
+          </div>
+
+          <div class="contact-action-card">
+            <h3>Contact Sales</h3>
+            <p>Discuss enterprise licensing, custom integrations, or a deployment plan tailored to your organization's needs.</p>
+            <a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center;">
+              Contact Sales →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="margin-bottom:0">
+            <div class="nav-logo-icon">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" fill="#050B18"/><path d="M8 5L11 6.75V10.25L8 12L5 10.25V6.75L8 5Z" fill="#10B981" opacity="0.6"/><circle cx="8" cy="8" r="1.5" fill="#050B18"/></svg>
+            </div>
+            <span class="nav-logo-text">NexusIntel <span>AI</span></span>
+          </a>
+          <p>Enterprise Revenue Intelligence Platform by SAYANJALI NEXUS PRIVATE LIMITED</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="https://github.com/SHalimoosavi" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://shalimoosavi.github.io/moosavi/" target="_blank" rel="noopener">Portfolio</a></li>
+            <li><a href="https://www.linkedin.com/in/syed-ali-hasan-moosavi-3b13782a7" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://twitter.com/SHAliMoosavi" target="_blank" rel="noopener">Twitter / X</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@sayanjali.ai">hello@sayanjali.ai</a></li>
+            <li><a href="#contact">Get in Touch</a></li>
+            <li><a href="https://forms.gle/9WBws7WHaSRemZHMA" target="_blank" rel="noopener">Request Demo</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <p><strong>SYJ NexusIntel AI</strong> — A Product of SAYANJALI NEXUS PRIVATE LIMITED</p>
+          <p style="margin-top:4px;">© 2026 SAYANJALI NEXUS PRIVATE LIMITED. All rights reserved.</p>
+        </div>
+        <div class="footer-dev t-mono">
+          Developed by <a href="https://shalimoosavi.github.io/moosavi/" target="_blank" rel="noopener">Syed Ali Hasan Moosavi</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ───────────────────────────────────────── -->
+  <script>
+    /* Nav scroll state */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    /* Mobile menu */
+    function toggleMenu() {
+      const m = document.getElementById('mobileNav');
+      const h = document.getElementById('hamburger');
+      const open = m.style.display === 'flex';
+      m.style.display = open ? 'none' : 'flex';
+      h.setAttribute('aria-expanded', !open);
+    }
+    function closeMenu() {
+      document.getElementById('mobileNav').style.display = 'none';
+      document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+    }
+
+    /* Scroll reveal */
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* Intelligence Ticker */
+    const tickerItems = [
+      { label: 'Lead Intelligence', val: 'Module Active', color: '#34D399' },
+      { label: 'Revenue Forecasting', val: 'Model Running', color: '#818CF8' },
+      { label: 'CRM Analytics', val: 'Pipeline Synced', color: '#34D399' },
+      { label: 'Opportunity Discovery', val: 'Scanning', color: '#FB923C' },
+      { label: 'Executive Briefing', val: 'Generating', color: '#34D399' },
+      { label: 'AI Engine', val: 'Operational', color: '#34D399' },
+      { label: 'Security Layer', val: 'Encrypted', color: '#34D399' },
+      { label: 'Data Pipeline', val: 'Streaming', color: '#818CF8' },
+    ];
+
+    function buildTicker(items) {
+      return items.map(i => `
+        <span class="ticker-item">
+          <span class="ticker-dot" style="background:${i.color};animation-delay:${Math.random()*2}s"></span>
+          ${i.label}&nbsp;—&nbsp;<span class="ticker-val" style="color:${i.color}">${i.val}</span>
+        </span>`).join('');
+    }
+
+    const track = document.getElementById('tickerTrack');
+    const html = buildTicker(tickerItems);
+    track.innerHTML = html + html; // duplicate for seamless loop
+
+    /* Smooth anchor scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); closeMenu(); }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
